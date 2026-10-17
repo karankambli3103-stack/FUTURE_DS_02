@@ -44,32 +44,52 @@ An executive-level Power BI dashboard built to analyze customer attrition, ident
 ## 📐 Key DAX Measures Used
 
 ### 1. Core KPI Metrics
-Total Customers
+
 ```dax
-Total Customers = 
+1.Total Customers = 
 COUNTROWS('telco_churn_unclean')
 
-Retained Customers Count
+2.Retained Customers Count
 Retained Customers = 
 CALCULATE(
     COUNTROWS('telco_churn_unclean'),
     'telco_churn_unclean'[Churn] = "No"
 )
 
-Churned Customers Count
+3.Churned Customers Count
 Churned Customers = 
 CALCULATE(
     COUNTROWS('telco_churn_unclean'),
     'telco_churn_unclean'[Churn] = "Yes"
 )
 
-Churn Rate %
+4.Churn Rate %
 Churn rate % = 
 DIVIDE([Churned Customers], [Total Customers], 0)
 
-Retention Rate %
+5.Retention Rate %
 Retention Rate % = 
 DIVIDE([Retained Customers], [Total Customers], 0)
+
+### 2. Pricing & Financial Analysis
+
+1.Average Monthly Charges (All Customers)
+Avg Monthly Charges = 
+AVERAGE('telco_churn_unclean'[MonthlyCharges])
+
+2.Average Monthly Charges - Retained
+Avg Monthly Charges Retained = 
+CALCULATE(
+    AVERAGE('telco_churn_unclean'[MonthlyCharges]),
+    'telco_churn_unclean'[Churn] = "No"
+)
+
+3.Average Monthly Charges - Churned
+Avg Monthly Charges Churned = 
+CALCULATE(
+    AVERAGE('telco_churn_unclean'[MonthlyCharges]),
+    'telco_churn_unclean'[Churn] = "Yes"
+)
 
 
 
