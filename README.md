@@ -54,4 +54,3 @@ VAR RetainedCust =
     )
 RETURN
 DIVIDE(RetainedCust, TotalCust, 0)
-
