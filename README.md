@@ -43,18 +43,6 @@ An executive-level Power BI dashboard built to analyze customer attrition, ident
 
 ## 📐 Key DAX Measures Used
 
-### 1. Retention Rate %
-```dax
-Retention Rate % = 
-VAR TotalCust = COUNTROWS('telco_churn_unclean')
-VAR RetainedCust = 
-    CALCULATE(
-        COUNTROWS('telco_churn_unclean'), 
-        'telco_churn_unclean'[Churn] = "No"
-    )
-RETURN
-DIVIDE(RetainedCust, TotalCust, 0)
-
 ### 1. Core KPI Metrics
 Total Customers
 ```dax
