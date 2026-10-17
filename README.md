@@ -54,3 +54,35 @@ VAR RetainedCust =
     )
 RETURN
 DIVIDE(RetainedCust, TotalCust, 0)
+
+### 1. Core KPI Metrics
+Total Customers
+```dax
+Total Customers = 
+COUNTROWS('telco_churn_unclean')
+
+Retained Customers Count
+Retained Customers = 
+CALCULATE(
+    COUNTROWS('telco_churn_unclean'),
+    'telco_churn_unclean'[Churn] = "No"
+)
+
+Churned Customers Count
+Churned Customers = 
+CALCULATE(
+    COUNTROWS('telco_churn_unclean'),
+    'telco_churn_unclean'[Churn] = "Yes"
+)
+
+Churn Rate %
+Churn rate % = 
+DIVIDE([Churned Customers], [Total Customers], 0)
+
+Retention Rate %
+Retention Rate % = 
+DIVIDE([Retained Customers], [Total Customers], 0)
+
+
+
+
