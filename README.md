@@ -2,9 +2,9 @@
 
 An executive-level Power BI dashboard built to analyze customer attrition, identify high-risk subscriber segments, and evaluate the revenue impact of churn across 28,142 customers.
 
-![Telco Churn Dashboard](images/dashboard_preview.png)
+Screenshot 2026-10-19 130848.png
 
----
+
 
 ## 🎯 Executive Summary & Key Metrics
 
